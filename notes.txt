@@ -1,0 +1,17 @@
+
+à faire  
+
+corriger le mode clair
+
+sysème de contact 
+
+Amélioration des performances 
+
+Ajouter une image au projet SYMFONY
+
+projets à ajouter : 
+
+- projet Z
+- Sylius 
+- Dockerisation ? 
+- ombrières 
