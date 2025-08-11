@@ -12,14 +12,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/jdedev-fr/serveur_crud_react">
-    <img src="https://uxwing.com/wp-content/themes/uxwing/download/web-app-development/rest-api-icon.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/jdedev-fr/portfolio-frontend">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">React Crud API</h3>
+<h3 align="center">Portfolio Frontend</h3>
 
   <p align="center">
-    Un serveur d'API pour un CRUD simple
+    Un portfolio moderne développé avec React
     <br />
     
   </p>
@@ -47,25 +47,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-
-Un serveur d'API fait en Typescript Node et express pour réaliser un portefolio
+Un portfolio moderne et responsive développé avec React, présentant mes compétences et projets de développement web.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
-* NodeJs
-* Express
-* Typescript
-* Sequelize
-* Sqlite
-* Swagger
+* React
+* React Router
+* Bootstrap
+* CSS3 / Animations
+* JavaScript ES6+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -75,17 +69,17 @@ Pour installer l'application :
 npm install
 ```
 
-Pour lancer l'application :
+Pour lancer l'application en mode développement :
 ```
 npm start
 ```
 
-Pour se connecter :
-email : admin@test.com
-mdp : test
+L'application sera accessible sur : http://localhost:3000/
 
-Url de base du serveur : http://localhost:3000/
-Url de la documentation de l'api : http://localhost:3000/api-docs/
+Pour créer une version de production :
+```
+npm run build
+```
 
 ### Prerequisites
 

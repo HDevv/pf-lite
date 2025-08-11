@@ -1,19 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../../assets/img/forge.jpg";
 import navIcon1 from "../../assets/img/nav-icon1.svg";
 import navIcon2 from "../../assets/img/nav-icon2.svg";
 import navIcon3 from "../../assets/img/nav-icon3.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
-import { useUser } from "../../context/UserContext";
 
-export const NavBar = ({ onShowProjectModal }) => {
+export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { user, setUser } = useUser();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,15 +28,6 @@ export const NavBar = ({ onShowProjectModal }) => {
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
-  };
-
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem("token");
-  };
-
-  const handleEditProjects = () => {
-    navigate("/projects");
   };
 
   return (
@@ -63,49 +51,6 @@ export const NavBar = ({ onShowProjectModal }) => {
             >
               Accueil
             </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/projects"
-              className={
-                activeLink === "projects" ? "active navbar-link" : "navbar-link"
-              }
-              onClick={() => onUpdateActiveLink("projects")}
-            >
-              Projets
-            </Nav.Link>
-            {!user ? (
-              <>
-                <Nav.Link
-                  as={Link}
-                  to="/login"
-                  className={
-                    activeLink === "login" ? "active navbar-link" : "navbar-link"
-                  }
-                  onClick={() => onUpdateActiveLink("login")}
-                >
-                  Connexion
-                </Nav.Link>
-                <Nav.Link
-                  as={Link}
-                  to="/register"
-                  className={
-                    activeLink === "register" ? "active navbar-link" : "navbar-link"
-                  }
-                  onClick={() => onUpdateActiveLink("register")}
-                >
-                  Inscription
-                </Nav.Link>
-              </>
-            ) : (
-              <>
-                <Button variant="secondary" onClick={handleEditProjects}>
-                  Modifier les projets
-                </Button>
-                <Button variant="danger" onClick={handleLogout}>
-                  Déconnexion
-                </Button>
-              </>
-            )}
           </Nav>
           <span className="navbar-text">
             <div className="social-icon">
