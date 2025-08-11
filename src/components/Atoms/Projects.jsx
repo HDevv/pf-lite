@@ -23,7 +23,6 @@ export const Projects = () => {
       description:
         "Application web React de location immobilière, API intégrée",
       imgUrl: projImg1,
-      videoUrl: "https://www.loom.com/share/908788b5360042e6976bb3206dbcee41",
     },
     {
       title: "WEBFIT 🏋️",
@@ -49,10 +48,11 @@ export const Projects = () => {
       description: "Vous donne la météo de n'importe quelle ville",
       imgUrl: projImg6,
     },{
-      title: "Générateur de citations (EN) 💬",
+      title: "Event Time 💬",
       description:
-        "Petite application React faite à partir d'une API de génération de citations",
+        "Gestionnaire d'évènements fait en Symfony",
       imgUrl: projImg4,
+      videoUrl: "https://www.loom.com/share/908788b5360042e6976bb3206dbcee41"
     },
   ];
   const projects2 = [
@@ -70,9 +70,10 @@ export const Projects = () => {
     },
 
     {
-      title: "Horloge ⌚",
-      description: "Horloge donnant l'heure actuelle intégrée avec HTML/CC/JS",
-      imgUrl: projImg7,
+      title: "Générateur de citations (EN) 💬",
+      description:
+        "Petite application React faite à partir d'une API de génération de citations",
+      imgUrl: projImg4,
     },
     {
       title: "Rain 🌧️",

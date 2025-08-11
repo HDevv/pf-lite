@@ -1,14 +1,18 @@
 /* variables de couleurs */
 :root {
-  --bg-color-light: #e6d591;
-  --text-color-light: black;
+  --bg-color-light: #f8f9fa;
+  --text-color-light: #2c3e50;
   --bg-color-dark: #121212;
   --text-color-dark: #e0e0e0;
-  --primary-color-light: #007bff;
+  --primary-color-light: #3498db;
   --primary-color-dark: #bb86fc;
-  --projects-bg-color-light: #fdead0;
+  --projects-bg-color-light: #ffffff;
   --projects-bg-color-dark: #181818;
-  --navbar-footer-text-color-light: #3a1a06;
+  --navbar-footer-text-color-light: #34495e;
+  --card-shadow-light: rgba(52, 73, 94, 0.1);
+  --card-shadow-hover-light: rgba(52, 73, 94, 0.3);
+  --card-shadow-dark: rgba(0, 0, 0, 0.3);
+  --card-shadow-hover-dark: rgba(0, 0, 0, 0.6);
 }
 
 /* Thèmes clair et sombre */
@@ -18,6 +22,8 @@ body.light {
   --primary-color: var(--primary-color-light);
   --projects-bg-color: var(--projects-bg-color-light);
   --navbar-footer-text-color: var(--navbar-footer-text-color-light);
+  --card-shadow: var(--card-shadow-light);
+  --card-shadow-hover: var(--card-shadow-hover-light);
 }
 
 body.dark {
@@ -25,6 +31,8 @@ body.dark {
   --text-color: var(--text-color-dark);
   --primary-color: var(--primary-color-dark);
   --projects-bg-color: var(--projects-bg-color-dark);
+  --card-shadow: var(--card-shadow-dark);
+  --card-shadow-hover: var(--card-shadow-hover-dark);
 }
 
 body {
@@ -155,8 +163,8 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #121212 !important;
-  color: #fff !important;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
   font-family: "Centra", sans-serif !important;
 }
 
@@ -338,9 +346,19 @@ nav.navbar .navbar-toggler-icon {
   height: 17px;
   background-image: none;
   position: relative;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--text-color);
   transition: all 300ms linear;
   top: -2px;
+}
+
+/* Mode clair - toggler navbar */
+body.light nav.navbar .navbar-toggler-icon {
+  border-bottom: 2px solid var(--text-color-light);
+}
+
+body.light nav.navbar .navbar-toggler-icon:after,
+body.light nav.navbar .navbar-toggler-icon:before {
+  background-color: var(--text-color-light);
 }
 nav.navbar .navbar-toggler-icon:focus {
   border-bottom: 2px solid #fff;
@@ -392,6 +410,27 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+/* Mode clair - banner avec overlay plus doux */
+body.light .banner {
+  position: relative;
+}
+
+body.light .banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(248, 249, 250, 0.3);
+  z-index: 1;
+}
+
+body.light .banner .container {
+  position: relative;
+  z-index: 2;
 }
 .banner .tagline {
   font-weight: 700;
@@ -462,21 +501,28 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: black;
+  background-color: var(--projects-bg-color);
+  transition: background-color 0.3s ease;
 }
 .project h2 {
   font-size: 45px;
   font-weight: 700;
   text-align: center;
+  color: var(--text-color);
 }
 .project p {
-  color: #be7624;
+  color: var(--primary-color);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
   margin: 14px auto 30px auto;
   text-align: center;
   width: 56%;
+}
+
+/* Mode clair - couleurs spécifiques pour la section projets */
+body.light .project p {
+  color: #6c757d;
 }
 .project .nav.nav-pills {
   width: 72%;
@@ -492,7 +538,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-color: transparent;
   border-radius: 0;
   padding: 17px 0;
-  color: #fff;
+  color: var(--text-color);
   width: 100%;
   font-size: 17px;
   letter-spacing: 0.8px;
@@ -501,6 +547,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.3s ease-in-out;
   text-align: center;
   z-index: 0;
+}
+
+/* Mode clair - navigation des projets */
+body.light .project .nav.nav-pills {
+  background-color: rgba(52, 73, 94, 0.1);
+}
+
+body.light .project .nav.nav-pills .nav-link {
+  color: var(--text-color-light);
+}
+
+body.light .project .nav.nav-pills .nav-link::before {
+  background: linear-gradient(90.21deg, var(--primary-color-light) -5.91%, #34495e 111.58%);
 }
 .project .nav.nav-pills .nav-link::before {
   content: "";
@@ -536,6 +595,13 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.proj-imgbx:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--card-shadow-hover);
 }
 .proj-imgbx::before {
   content: "";
@@ -558,10 +624,29 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transition: 0.5s ease-in-out;
   opacity: 0;
   width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 .proj-imgbx:hover .proj-txtx {
   top: 50%;
   opacity: 1;
+}
+
+/* Mode clair - amélioration du contraste pour le texte des projets */
+body.light .proj-txtx {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--text-color-light);
+  box-shadow: 0 4px 15px var(--card-shadow-hover);
+}
+
+body.light .proj-txtx h4 {
+  color: var(--text-color-light);
+}
+
+body.light .proj-txtx span {
+  color: #6c757d;
 }
 .proj-txtx h4 {
   font-size: 30px;
@@ -588,6 +673,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .contact {
   background: linear-gradient(90.21deg, #582d04 -5.91%, #d68a2d 111.58%);
   padding: 60px 0 200px 0;
+}
+
+/* Mode clair - section contact */
+body.light .contact {
+  background: linear-gradient(90.21deg, var(--primary-color-light) -5.91%, #34495e 111.58%);
 }
 .contact img {
   width: 92%;
