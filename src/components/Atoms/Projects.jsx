@@ -48,7 +48,7 @@ export const Projects = () => {
       description: "Vous donne la météo de n'importe quelle ville",
       imgUrl: projImg6,
     },{
-      title: "Event Time 💬",
+      title: "Event Time 📅",
       description:
         "Gestionnaire d'évènements fait en Symfony",
       imgUrl: projImg4,
