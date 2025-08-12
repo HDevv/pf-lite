@@ -10,7 +10,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,15 +64,6 @@ export const NavBar = () => {
                 <img src={navIcon3} alt="logo de twitter" />
               </a>
             </div>
-            <button
-              onClick={() => {
-                console.log("Thème changé :", theme);
-                toggleTheme();
-              }}
-              className="theme-toggle-btn"
-            >
-              {theme === "light" ? "🌙 Mode Sombre" : "☀️ Mode Clair"}
-            </button>
           </span>
         </Navbar.Collapse>
       </Container>
