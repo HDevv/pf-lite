@@ -224,32 +224,67 @@ p.success {
 p.danger {
   color: red;
 }
+
+/************ MODALES VIDÉO ************/
+/* Amélioration des modales pour passer au-dessus de la navbar */
+.modal {
+  z-index: 1050 !important;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+
+/* Styles pour les vidéos en plein écran */
+.video-modal .modal-dialog {
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: 2rem auto;
+}
+
+.video-modal .modal-content {
+  background: transparent;
+  border: none;
+}
+
+.video-modal .modal-body {
+  padding: 0;
+}
+
+/* Masquer la navbar quand une modale vidéo est ouverte */
+body.modal-open nav.navbar {
+  z-index: 999;
+}
 /************ NAVBAR ************/
 
 .dofla {
   border-radius: 5px;
+  height: 85px;
+  width: auto;
 }
 nav.navbar {
-  padding: 18px 0;
+  padding: 4px 0;
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 9999;
+  z-index: 1000;
   transition: 0.32s ease-in-out;
+  min-height: auto;
 }
 nav.navbar.scrolled {
-  padding: 0px 0;
+  padding: 2px 0;
   background-color: #121212;
 }
 nav.navbar a.navbar-brand {
   width: 9%;
+  padding: 0;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
-  font-weight: 400;
+  font-weight: 500;
   color: #fff !important;
   letter-spacing: 0.8px;
-  padding: 0 25px;
-  font-size: 18px;
+  padding: 8px 20px;
+  font-size: 26px;
   opacity: 0.75;
 }
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
@@ -265,12 +300,12 @@ span.navbar-text {
   margin-left: 14px;
 }
 .social-icon a {
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   background: rgba(217, 217, 217, 0.1);
   display: inline-flex;
   border-radius: 50%;
-  margin-right: 6px;
+  margin-right: 4px;
   align-items: center;
   justify-content: center;
   line-height: 1;
@@ -278,8 +313,8 @@ span.navbar-text {
 }
 .social-icon a::before {
   content: "";
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
   position: absolute;
   background-color: #ffffff;
   border-radius: 50%;
@@ -669,6 +704,81 @@ body.light .proj-txtx span {
   z-index: -4;
 }
 
+/************ SKILLS ************/
+.skill {
+  padding: 0 0 50px 0;
+  position: relative;
+}
+.skill-bx {
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+  margin-top: -60px;
+}
+.skill h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+}
+.skill p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px auto;
+  text-align: center;
+  width: 56%;
+}
+.skill-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px 20px;
+  margin: 0 10px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+.skill-item h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+.skill-progress {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  height: 8px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.skill-progress-bar {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 2s ease-in-out;
+}
+.skill-percentage {
+  font-size: 14px;
+  color: #B8B8B8;
+  font-weight: 500;
+}
+.background-image-left {
+  top: 28%;
+  position: absolute;
+  bottom: 0;
+  width: 40%;
+  left: 0;
+  z-index: -4;
+}
+
 /************ CONTACT ************/
 .contact {
   background: linear-gradient(90.21deg, #582d04 -5.91%, #d68a2d 111.58%);
@@ -818,16 +928,98 @@ body.light .contact {
   letter-spacing: 0.5px;
   border-radius: 18px;
 }
-.footer img {
-  width: 30%;
-  height: auto;
+/* Footer global */
+.footer {
+  padding: 40px 0;
+  background-color: var(--bg-color);
+}
+
+.footer .row {
+  align-items: center;
+  min-height: 100px;
+}
+
+/* Centrage du logo sur mobile */
+.footer .col-sm-6:first-child {
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .footer .col-sm-6:first-child {
+    text-align: left;
+  }
+}
+
+/* Logo uniquement */
+.footer .footer-logo {
+  width: auto;
+  height: 95px;
   border-radius: 10px;
   opacity: 0.8;
+  margin-bottom: 10px;
 }
+
+/* Conteneur des icônes sociales */
+.footer .social-icon {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /* plus d’espace entre les icônes */
+}
+
+/* Alignement responsive pour les icônes sociales */
+@media (min-width: 576px) {
+  .footer .text-sm-end .social-icon {
+    justify-content: flex-end;
+  }
+}
+
+/* Bouton rond pour chaque icône */
+.footer .social-icon a {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* Taille propre de l’icône (img ou svg) */
+.footer .social-icon a img,
+.footer .social-icon a svg {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  opacity: 1;
+  border-radius: 0;
+  object-fit: contain;
+}
+
 .footer p {
   font-weight: 400;
   font-size: 14px;
   color: #b8b8b8;
   letter-spacing: 0.5px;
-  margin-top: 20px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .footer .footer-logo {
+    height: 70px;
+    margin-bottom: 20px;
+  }
+
+  .footer .text-center {
+    text-align: center !important;
+  }
+
+  .footer .social-icon {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 }

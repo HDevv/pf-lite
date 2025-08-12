@@ -121,10 +121,10 @@ export const Projects = () => {
                       id="pills-tab"
                     >
                       <Nav.Item>
-                        <Nav.Link eventKey="first">Projets React</Nav.Link>
+                        <Nav.Link eventKey="first">Projets 1/2</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
-                        <Nav.Link eventKey="second">Autres Projets</Nav.Link>
+                        <Nav.Link eventKey="second">Projets 2/2</Nav.Link>
                       </Nav.Item>
                       <Nav.Item>
                         <Nav.Link eventKey="third">Statistiques</Nav.Link>
