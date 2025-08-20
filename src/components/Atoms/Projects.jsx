@@ -13,6 +13,7 @@ import projImg9 from "../../assets/img/trattoria.png";
 import projImg10 from "../../assets/img/url-shortener.png";
 import projImg11 from "../../assets/img/marmitouille.png";
 import projImg12 from "../../assets/img/projet-z.png";
+import projImg13 from "../../assets/img/ombriere.png";
 import colorSharp2 from "../../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -20,25 +21,26 @@ import TrackVisibility from "react-on-screen";
 export const Projects = () => {
   const projects = [
     {
-      title: "KASA 🏠",
+      title: "Ombriere",
       description:
-        "Application web React de location immobilière, API intégrée",
-      imgUrl: projImg1,
+        "Plugin de calcul Wordpress PHP, réalisé à partir d'options d'article et d'une procédure de calcul complexe fournie par le client",
+      imgUrl: projImg13,
     },
+    
     {
-      title: "WEBFIT 🏋️",
+      title: "WEBFIT",
       description:
         "Site de coaching, présentation des différents programmes, contact par mail et présentation coach",
       imgUrl: projImg2,
     },
     {
-      title: "Labyrinthe 🕹️",
+      title: "Labyrinthe",
       description:
         "Jeu élaboré avec Javascript pour l'entreprise Alécol, pour petits et grands avec plusieurs niveaux de difficultés",
       imgUrl: projImg3,
     },
     {
-      title: "Marmitouille 🍽️",
+      title: "Marmitouille",
       description:
         "Petite application React faite à partir d'une API de génération de citations",
       imgUrl: projImg11,
@@ -50,7 +52,7 @@ export const Projects = () => {
       imgUrl: projImg12,
       videoUrl: "https://www.loom.com/share/4976338c0d744eb1ad115440fcf01138?sid=755c21a6-afff-457c-855a-71f8e986db05"
     },{
-      title: "Event Time 📅",
+      title: "Event Time",
       description:
         "Gestionnaire d'évènements fait en Symfony",
       imgUrl: projImg4,
@@ -59,38 +61,38 @@ export const Projects = () => {
   ];
   const projects2 = [
     {
-      title: "Trattoria 🍕",
+      title: "Trattoria",
       description:
         "Porjet réalisé dans le cadre de mon bachelor, maquette donnée par le professeur qu'il a fallu reproduire au PX près, je me suis permis l'ajout de plusieurs animation CSS comme le loader",
       imgUrl: projImg9,
     },
     {
-      title: "URL Shortener ✂️",
+      title: "URL Shortener",
       description:
         "Projet PHP réalisé dans le cadre d'une évaluation, racourcisseur d'URL fait avec une BDD SQL et PHP",
       imgUrl: projImg10,
     },
 
     {
-      title: "Générateur de citations (EN) 💬",
+      title: "Générateur de citations (EN)",
       description:
         "Petite application React faite à partir d'une API de génération de citations",
       imgUrl: projImg4,
     },
     {
-      title: "Rain 🌧️",
+      title: "KASA 🏠",
       description:
-        "Un petit exercice dans lequel on fait tomber la pluie sur une page web en jouant avec du CSS et des méthodes JS",
-      imgUrl: projImg8,
+        "Application web React de location immobilière, API intégrée",
+      imgUrl: projImg1,
     },
     {
-      title: "G la recette (EN) 🍽️",
+      title: "G la recette (EN)",
       description:
         "Application web React également faites à partir d'une API, choisissez un ingrédient et vous aurez une liste de recettes avec celui-ci",
       imgUrl: projImg5,
     },
     {
-      title: "API Météo ⛅",
+      title: "API Météo",
       description: "Vous donne la météo de n'importe quelle ville",
       imgUrl: projImg6,
     }
