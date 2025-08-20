@@ -1,3 +1,4 @@
+import React, { useMemo } from "react";
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "../Molecules/ProjectCard";
 import { PortfolioStats } from "../Molecules/PortfolioStats";
@@ -18,8 +19,8 @@ import colorSharp2 from "../../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 
-export const Projects = () => {
-  const projects = [
+export const Projects = React.memo(() => {
+  const projects = useMemo(() => [
     {
       title: "Ombriere",
       description:
@@ -58,8 +59,9 @@ export const Projects = () => {
       imgUrl: projImg4,
       videoUrl: "https://www.loom.com/share/908788b5360042e6976bb3206dbcee41"
     },
-  ];
-  const projects2 = [
+  ], []);
+  
+  const projects2 = useMemo(() => [
     {
       title: "Trattoria",
       description:
@@ -96,7 +98,7 @@ export const Projects = () => {
       description: "Vous donne la météo de n'importe quelle ville",
       imgUrl: projImg6,
     }
-  ];
+  ], []);
 
   return (
     <section className="project" id="projects" data-testid="projects-section">
@@ -141,14 +143,14 @@ export const Projects = () => {
                       <Tab.Pane eventKey="first">
                         <Row>
                           {projects.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
+                            return <ProjectCard key={`project-1-${index}`} {...project} />;
                           })}
                         </Row>
                       </Tab.Pane>
                       <Tab.Pane eventKey="second">
                         <Row>
                           {projects2.map((project, index) => {
-                            return <ProjectCard key={index} {...project} />;
+                            return <ProjectCard key={`project-2-${index}`} {...project} />;
                           })}
                         </Row>
                       </Tab.Pane>
@@ -163,7 +165,7 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2} alt=""></img>
+      <img className="background-image-right" src={colorSharp2} alt="" loading="lazy"></img>
     </section>
   );
-};
+});

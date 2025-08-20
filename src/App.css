@@ -1,4 +1,4 @@
-/* variables de couleurs */
+/* variables de couleurs et performance */
 :root {
   --bg-color-light: #f8f9fa;
   --text-color-light: #2c3e50;
@@ -13,6 +13,11 @@
   --card-shadow-hover-light: rgba(52, 73, 94, 0.3);
   --card-shadow-dark: rgba(0, 0, 0, 0.3);
   --card-shadow-hover-dark: rgba(0, 0, 0, 0.6);
+  
+  /* Variables de transition pour performance */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
 }
 
 /* Thèmes clair et sombre */
@@ -35,10 +40,24 @@ body.dark {
   --card-shadow-hover: var(--card-shadow-hover-dark);
 }
 
+/* Optimisations de performance globales */
+* {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  will-change: background-color, color;
 }
 
 body.light,
@@ -630,8 +649,9 @@ body.light .project .nav.nav-pills .nav-link::before {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
-  transition: all 0.3s ease-in-out;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   box-shadow: 0 4px 8px var(--card-shadow);
+  will-change: transform, box-shadow;
 }
 
 .proj-imgbx:hover {
@@ -645,7 +665,8 @@ body.light .project .nav.nav-pills .nav-link::before {
   position: absolute;
   width: 100%;
   height: 0;
-  transition: 0.4s ease-in-out;
+  transition: height var(--transition-slow);
+  will-change: height;
 }
 .proj-imgbx:hover::before {
   height: 100%;
@@ -656,13 +677,14 @@ body.light .project .nav.nav-pills .nav-link::before {
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
+  transition: top var(--transition-slow), opacity var(--transition-slow);
   opacity: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 15px;
   backdrop-filter: blur(10px);
+  will-change: top, opacity;
 }
 .proj-imgbx:hover .proj-txtx {
   top: 50%;
